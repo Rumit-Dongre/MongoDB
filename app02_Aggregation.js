@@ -1,13 +1,3 @@
-process.stdout.write("Hello, world!\n");
-process.stderr.write("This is an error message!\n");
-
-console.log(`Uptime: ${process.uptime()} seconds`);
-
-
-process.stdin.on('data', (data) => {
-  console.log(`You typed: ${data.toString()}`);
-  process.exit(1)
-});
 
 
 
@@ -236,7 +226,8 @@ db.student.aggregate([
   },
   {
     //@ custom fields  
-    // $project: { name: 1, age: 1, fulldetail:{$concat:["$name"," class is" , "$class"]} }
+    $project: { name: 1, age: 1, 
+      fulldetail:{$concat:["$name"," class is" , "$class"]} }
 
 
   }
